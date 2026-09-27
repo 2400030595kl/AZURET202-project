@@ -1,0 +1,178 @@
+:root {
+  --bg-page: #f8fafc;
+  --surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-subtle: #e2e8f0;
+  --primary-blue: #2563eb;
+}
+
+.resources-page {
+  padding: clamp(24px, 4vw, 40px);
+  background-color: var(--bg-page);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-main);
+}
+
+/* --- Header --- */
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.page-header .subtitle {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Toolbar --- */
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.search-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 380px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 14px 10px 40px;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.results-badge {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+
+/* --- Table Card --- */
+.table-card {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.resources-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.resources-table th {
+  padding: 14px 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.resources-table td {
+  padding: 16px 20px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-main);
+}
+
+.resources-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.resources-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* --- Row Details & Badges --- */
+.resource-name {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.type-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #1e40af;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.location-cell {
+  color: var(--text-muted);
+}
+
+.status-badge.active {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 4px 10px;
+  border-radius: 9999px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 20px !important;
+  color: var(--text-muted);
+}

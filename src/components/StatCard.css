@@ -1,0 +1,30 @@
+.stat-card {
+  background: var(--card-bg, #f8fafc);
+  padding: 24px 28px;
+  border-radius: var(--radius-card, 20px);
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  background: var(--card-hover-bg, #f1f5f9);
+  border-color: var(--border-subtle, #e3e3e3);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover, 0 4px 12px rgba(0, 0, 0, 0.05));
+}
+
+.stat-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted, #5f6368);
+  letter-spacing: 0.01em;
+}
+
+.stat-card h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-main, #1f1f1f);
+  letter-spacing: -0.02em;
+}

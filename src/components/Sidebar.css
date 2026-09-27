@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* --- Canvas & Surfaces --- */
+  --bg-app: #ffffff;
+  --bg-card: #f8fafc;
+  --bg-card-hover: #f1f5f9;
+  --bg-chip: #ffffff;
+
+  /* --- Typography --- */
+  --text-main: #1f1f1f;
+  --text-heading: #374151;
+  --text-muted: #5f6368;
+
+  /* --- Linework & Focus States --- */
+  --border-subtle: #e3e3e3;
+  --border-strong: #c4c7c5;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+  /* --- Gemini Brand Accents --- */
+  --gemini-blue: #4285f4;
+  --gemini-purple: #9b72cb;
+  --gemini-pink: #d96570;
+
+  --gemini-text-gradient: linear-gradient(74deg, #4285f4 0%, #9b72cb 35%, #d96570 70%);
+  --gemini-sparkle: radial-gradient(
+    circle at top right,
+    rgba(66, 133, 244, 0.12) 0%,
+    rgba(155, 114, 203, 0.12) 35%,
+    rgba(217, 101, 112, 0.08) 60%,
+    transparent 80%
+  );
+
+  /* --- Geometry --- */
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --radius-pill: 9999px;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: 'Google Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   SIDEBAR (Gemini Theme)
+   ========================================================================== */
+.sidebar {
+  width: 260px;
+  min-width: 260px;
+  height: 100vh;
+  background: var(--bg-app);
+  border-right: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px 28px 12px;
+}
+
+.sidebar-header svg {
+  color: var(--gemini-blue);
+  flex-shrink: 0;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.sidebar-header span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-link svg {
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-main);
+}
+
+.nav-link:hover svg {
+  color: var(--text-main);
+}
+
+/* Gemini Tinted Active Link */
+.nav-link.active {
+  background: rgba(66, 133, 244, 0.08);
+  color: var(--gemini-blue);
+  font-weight: 600;
+}
+
+.nav-link.active svg {
+  color: var(--gemini-blue);
+}
+
+.sidebar-footer {
+  padding: 16px 12px 0 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.sidebar-footer p {
+  margin: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sidebar-footer strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+/* ==========================================================================
+   DASHBOARD / HERO / CARDS (Gemini Theme)
+   ========================================================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card);
+  padding: clamp(32px, 4vw, 48px);
+  border-radius: var(--radius-lg);
+  margin-bottom: 32px;
+  border: 1px solid var(--border-subtle);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gemini-sparkle);
+  pointer-events: none;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  background: var(--gemini-text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  position: relative;
+  margin: 12px 0 0;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 58ch;
+  line-height: 1.6;
+}
+
+.last-sync {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-chip);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+}
+
+.last-sync::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background-color: var(--gemini-blue);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(66, 133, 244, 0.4);
+}
+
+.section-heading {
+  margin: 32px 0 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--text-heading);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  padding: 24px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-subtle);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.stat-card .label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.01em;
+}
+
+.stat-card .value {
+  margin-top: 10px;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}

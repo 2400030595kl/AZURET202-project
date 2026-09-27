@@ -1,0 +1,210 @@
+:root {
+  --bg-page: #f8fafc;
+  --surface: #ffffff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --border-subtle: #e2e8f0;
+}
+
+.retention-page {
+  padding: clamp(24px, 4vw, 40px);
+  background-color: var(--bg-page);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-main);
+}
+
+/* --- Header --- */
+.page-header {
+  margin-bottom: 24px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.page-header .subtitle {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Table Card --- */
+.table-card {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.retention-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.retention-table th {
+  padding: 14px 24px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.retention-table td {
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.retention-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.retention-table tbody tr:hover {
+  background-color: #fcfcfd;
+}
+
+/* --- Cell Details --- */
+.resource-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.resource-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.resource-type {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.reason-cell {
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.action-column {
+  text-align: right;
+}
+
+/* --- Risk Badges --- */
+.risk-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.risk-low {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.risk-medium {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fde68a;
+}
+
+.risk-high {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+/* --- Action Buttons --- */
+.btn-review {
+  background: var(--surface);
+  border: 1px solid #cbd5e1;
+  color: var(--text-main);
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.btn-review:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+/* Modal Overlay Background */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it sits above table content */
+}
+
+/* Modal Content Card */
+.modal-content {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: #333333;
+}
+
+.modal-step h4 {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.modal-step p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: white;
+}
