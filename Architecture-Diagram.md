@@ -1,44 +1,55 @@
 # Architecture Diagram
 
-## Azure Resource Decommission Dashboard
+## Azure Subscription Decommissioning and Data Retention Plan
 
-```mermaid
-flowchart TD
-    U[User] --> F[React.js Frontend]
-    F --> B[Node.js / Express Backend]
-    B --> A[Azure SDK for JavaScript]
-    A --> ARM[Azure Resource Manager]
-    A --> CM[Azure Cost Management]
+The project architecture follows this flow:
 
-    ARM --> R[Azure Resources]
-    R --> VM[Virtual Machine]
-    R --> N[Network Resources]
-    R --> D[Disks]
-    R --> P[Public IP]
+**Legacy Azure Subscription → Inventory & Dependency Assessment → Data Classification & Retention Rules → Cost & Egress Check → Backup/Archive → Subscription Decommissioning → Audit & Compliance Evidence**
 
-    CM --> C[Cost Data]
-    B --> DE[Dependency Mapping]
-    B --> CA[Cost Analytics Engine]
-    B --> DW[Decommission Workflow]
-    B --> AR[PDF Audit Report]
+### Architecture Diagram Components
 
-    DE --> F
-    CA --> F
-    DW --> F
-    AR --> F
-```
+1. **Legacy Azure Subscription**
+   - Starting point containing the existing Azure resources and subscription.
 
-## Architecture Explanation
+2. **Inventory & Dependency Assessment**
+   - Discovers and analyzes resources and their dependencies.
+   - **Azure Resource Graph** is used to discover and query Azure resources.
+   - **Azure Policy** is used to enforce governance and compliance requirements.
 
-1. **User** interacts with the Azure Resource Decommission Dashboard.
-2. **React.js Frontend** provides the dashboard interface for resource inventory, dependency visualization, cost analysis, and decommission status.
-3. **Node.js / Express Backend** handles application requests and communicates with Azure services.
-4. **Azure SDK for JavaScript** connects the backend with Microsoft Azure.
-5. **Azure Resource Manager** provides information about Azure resources and their current status.
-6. **Azure Cost Management** provides cost information used for cost analysis and savings estimation.
-7. **Dependency Mapping** identifies relationships between resources and helps detect possible orphaned or dependent resources.
-8. **Cost Analytics Engine** analyzes resource costs and potential recovery.
-9. **Decommission Workflow** categorizes resources based on their decommission status and audit requirements.
-10. **PDF Audit Report** generates documentation of flagged resources, costs, and decommissioning information.
+3. **Data Classification & Retention Rules**
+   - Identifies data that must be retained and applies appropriate retention requirements before decommissioning.
 
-The architecture supports live synchronization with Azure and provides a unified workflow for safely analyzing and planning resource decommissioning.
+4. **Cost & Egress Check**
+   - Evaluates resource costs and possible data egress costs before resources are removed.
+
+5. **Backup/Archive**
+   - Required data and audit evidence are backed up or archived.
+   - **Azure Storage Account / Blob Storage** is used for data archiving.
+   - **Azure Backup** is used for backup operations.
+
+6. **Subscription Decommissioning**
+   - After dependencies, data retention, cost, and backup requirements are checked, the legacy subscription can proceed through the decommissioning process.
+
+7. **Audit & Compliance Evidence**
+   - Maintains evidence required for auditing and compliance.
+   - **Azure Monitor / Log Analytics** supports monitoring and log analysis.
+   - **Microsoft Purview** supports data governance and compliance-related activities.
+
+### Azure Services Used
+
+| Architecture Area | Azure Service |
+|---|---|
+| Resource Discovery | Azure Resource Graph |
+| Governance & Compliance | Azure Policy |
+| Data Archive | Azure Storage Account / Blob Storage |
+| Backup | Azure Backup |
+| Monitoring & Logs | Azure Monitor / Log Analytics |
+| Data Governance | Microsoft Purview |
+
+### Architecture Explanation
+
+The architecture begins with a **Legacy Azure Subscription**. The resources and dependencies are first identified through **Inventory & Dependency Assessment** using Azure Resource Graph and Azure Policy. Next, **Data Classification & Retention Rules** determine which information must be preserved. A **Cost & Egress Check** is then performed to understand the financial impact of the decommissioning process.
+
+Required data and evidence are preserved through **Backup/Archive** using Azure Storage Account / Blob Storage and Azure Backup. After these checks are completed, the subscription moves to **Subscription Decommissioning**. Finally, **Audit & Compliance Evidence** is maintained using Azure Monitor / Log Analytics and Microsoft Purview.
+
+This architecture provides a structured sequence for analyzing, preserving, and safely decommissioning a legacy Azure subscription.
